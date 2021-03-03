@@ -1,10 +1,5 @@
 
 public class Stock {
-<<<<<<< HEAD
-	public static void main(String[] args) {
-	
-		}
-=======
 
     //Estructura de la taula
 
@@ -48,7 +43,4 @@ public class Stock {
    // public static void contingutmaquinan(char[][] stock)
 
 
-
-
->>>>>>> 023d8806d69454d44f98c7cbd753d5eb4ba97ba2
 }
