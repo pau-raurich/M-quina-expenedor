@@ -3,44 +3,51 @@ public class Stock {
 
     //Estructura de la taula
 
-    public static void estructuratauler (char[][] stock)
+    public static void estructuratauler (char[][] taulellstock)
     {
-        
-        for (int i =0; i<tauler.length; i++)
-        {
 
-            for(int j =0; j<tauler.length; j++)
+        for (int i =0; i<taulellstock.length;i++)
+        {
+            System.out.println();
+            System.out.print((i+1) + " ");
+            for(int j =0; j<taulellstock[0].length;j++)
             {
-                System.out.print(tauler[i][j] + " ");
+                System.out.print(" " + taulellstock[i][j]);
             }
-        }        
+        }
     }
 
     //Posicio dels productes
     //Cridem el contingut de la maquina
 
-    public static void contingutmaquinan(char[][] stock)
+    public static void contingutmaquina(char[][] taulellstock)
     {
-        taulell[0][0]='A1';
-        taulell[0][1]='A2';
-        taulell[0][2]='A3';
+        taulellstock[0][0]='A';
+        taulellstock[0][1]='A';
+        taulellstock[0][2]='A';
 
-        taulell[1][0]='B1';
-        taulell[1][1]='B2';
-        taulell[1][2]='B3';
+        taulellstock[1][0]='B';
+        taulellstock[1][1]='B';
+        taulellstock[1][2]='B';
 
-        taulell[2][0]='C1';
-        taulell[2][1]='C2';
-        taulell[2][2]='C3';
+        taulellstock[2][0]='C';
+        taulellstock[2][1]='C';
+        taulellstock[2][2]='C';
 
-        taulell[3][0]='D1';
-        taulell[3][1]='D2';
-        taulell[3][2]='D3';
-
+        taulellstock[3][0]='D';
+        taulellstock[3][1]='D';
+        taulellstock[3][2]='D';
 
     }
 
    // public static void contingutmaquinan(char[][] stock)
 
+   public static void main(String [] args){
 
+    char [][]taulastock = new char[4][4];
+    contingutmaquina(taulastock);
+    estructuratauler(taulastock);
+
+    
+    }
 }
