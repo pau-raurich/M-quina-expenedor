@@ -7,7 +7,7 @@ public class Application {
 	public static void main(String [] args){
 		Scanner sc = new Scanner (System.in);
 		
-		char[][] stock = new String[3][4];//creem una matriu per veure el stock
+		char[][] stock = new char[3][4];//creem una matriu per veure el stock
 		
 		int n = 0;
 		
