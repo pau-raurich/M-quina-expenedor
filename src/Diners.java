@@ -5,13 +5,14 @@ public class Diners {
 
 		Scanner sc = new Scanner(System.in);
 		//EXEMPLE
-		double producte=2;
+		double producte=2.5;
+		
 		
 		/*
 		 * Matriu on es guarda els diners introduits per l'usuari 
 		 * Aquesta Matriu cada cop que es demani un producte es quedara a 0
 		 * */
-		double [] preu= new double [12];
+		double monader [] = new double [3];
 		/*
 		 * Aqui es guarda l'estock dels diners que hi ha per a canvi
 		 * Es restara quan es doni diners a l'usuari
@@ -21,15 +22,40 @@ public class Diners {
 		 * Diners guanyats per el producte 
 		 * */
 		double [] dinersGuanyats= {};
-
-		int contador = 0;
+		/*
+		 * Aqui guardarem el valor itroduit per el client
+		 * */
+		double preu = 0.0;
+		/*
+		 * Utilitzem aquesta variable per sumar la cada cop
+		 * les monedes que introdueix el client,
+		 * anteriorment guardades en el preu
+		 * */
+		double contador = 0.0; 
 		
-		 for(int i=contador; i<producte; i++ ) {
-			 System.out.println("Introdueix les monedes: ");
-			 preu[i] = sc.nextDouble();
-			 contador += (int) (preu[i]);
-			 System.out.println(contador);
-	      }
+		/*-------------------------------------------------------------------------*/
+		
+		/*Bucle que es fa fins que el cost del producte 
+		 * es mes gran o igua a les monedes introduides per el client
+		 * */
+		while(producte >= contador) {
+            System.out.println("Introdueix les monedes: ");
+            preu = sc.nextDouble();
+            contador += preu;
+            if(producte>contador) {
+
+            }else if(producte==contador) {
+                System.out.println("Import finalitzat");
+                System.out.println("Ja pot recollir el producte");
+                break;//Un cop entrem aquest if aixo et fa sortir del bucle
+
+            }else {
+            	double canviDonat = contador - producte;//veure la diferencia que li hem de donar
+                System.out.println("Import finalitzat");
+                System.out.println("Tingui el seu canvi "+canviDonat+": ");
+                System.out.println("Ja pot recollir el producte");
+            }
+         }
 		 
 		}
 }
