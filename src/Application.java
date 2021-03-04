@@ -5,7 +5,7 @@ public class Application {
 	public static void main(String [] args){
 		Scanner sc = new Scanner (System.in);
 		
-		char[][] stock = new char[3][4];//creem una matriu per veure el stock
+		String[][] taulaStock = new String[4][3];//creem una matriu per veure el stock
 		
 		int n = 0;
 		/*
@@ -13,9 +13,10 @@ public class Application {
 		 * Presentacio de la maquina
 		 * 
 		 * */
+		System.out.println("Benvinguts a la nostra màquina expendedora, agafi el producte que vulgui");
 		
 		//Funcio mostreTaulell
-		
+		estructuratauler(talerStock);
 		/*
 		 * Es fa fins que no queden productes
 		 * */
@@ -29,8 +30,7 @@ public class Application {
 				//Opcio mirarStock
 			//Opcio codiSenseCanvi
 			//Opcio codiNoral
-			estructuratauler(stock);
-			contingutmaquina(stock);
+			contingutmaquina(taulerStock);
 			
 			
 			
