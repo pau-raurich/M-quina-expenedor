@@ -17,7 +17,10 @@ public class Diners {
 		 * Aqui es guarda l'estock dels diners que hi ha per a canvi
 		 * Es restara quan es doni diners a l'usuari
 		 * */
-		double [] dinersCanvi= {};
+		int monedes1e = 50;
+		int monedes2e = 50;
+		double monedes50cnt = 50;
+
 		/*
 		 * Diners guanyats per el producte 
 		 * */
@@ -32,7 +35,10 @@ public class Diners {
 		 * anteriorment guardades en el preu
 		 * */
 		double contador = 0.0; 
-		
+		/*
+		 * Variable la cual es guardara el canvi tornat
+		 * */
+		double canviDonat=0;
 		/*-------------------------------------------------------------------------*/
 		
 		/*Bucle que es fa fins que el cost del producte 
@@ -50,7 +56,7 @@ public class Diners {
                 break;//Un cop entrem aquest if aixo et fa sortir del bucle
 
             }else {
-            	double canviDonat = contador - producte;//veure la diferencia que li hem de donar
+                canviDonat = contador - producte;//veure la diferencia que li hem de donar
                 System.out.println("Import finalitzat");
                 System.out.println("Tingui el seu canvi "+canviDonat+": ");
                 System.out.println("Ja pot recollir el producte");
