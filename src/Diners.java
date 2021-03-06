@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Diners {
-	
-	int monader [] = new int [3];
+
+	public static int monaderGuanyat [] = new int [3];
+	public static int monaderCanvi [] = {50,50,50};
 
 
 	public static void funcioMonedesPrincipal (double preuProducte){
@@ -31,11 +32,13 @@ public class Diners {
 
 			System.out.println("Introdueix les monedes: ");
 			monedaIntroduida = sc.nextDouble();
-			stockMonedesGuanyades(monedaIntroduida);
-			
+			/*-------------------------------------------*/
+			introduirMonedes(monedaIntroduida);
+			/*-------------------------------------------*/
+
 			//Et suma les monedes introduides
 			contador += monedaIntroduida;
-			
+
 			if(preuProducte>contador) {//Si es > continua el bucle
 
 			}else if(preuProducte==contador) {//Si es == sacaba el codi
@@ -45,83 +48,93 @@ public class Diners {
 
 			}else {//Sino et tornen el canvi i el producte
 				canviDonat = contador - preuProducte;//veure la diferencia que li hem de donar
-				stockMonedesCanvi(canviDonat);
+				/*-------------------------------------------*/
+				retiradaMoneda(canviDonat);
+				/*-------------------------------------------*/
 				System.out.println("Import finalitzat");
 				System.out.println("Tingui el seu canvi "+canviDonat+": ");
 				System.out.println("Ja pot recollir el producte");
 			}
 		}
-
-	}
-
-	public static void stockMonedesCanvi (double canviDonat){
-		/*
-		 * Aqui es guarda l'estock dels diners que hi ha per a canvi
-		 * Es restara quan es doni diners a l'usuari
-		 * */
-		int monedes1e = 50;
-		int monedes2e = 50;
-		int monedes50cnt = 50;
-		/*
-		 * Resta les monedes de canvi per el client 
-		 */
-		if (canviDonat == 1) {
-			monedes1e -= 1;
-			System.out.println(monedes1e);
-		}else if (canviDonat == 2) {
-			monedes2e -= 1;
-			System.out.println(monedes2e);
-
-		}else {
-			monedes50cnt -= 1;
-			System.out.println(monedes50cnt);
-		}
 	}
 	
-	public static void stockMonedesGuanyades ( double monedaIntroduida){
-		/*
-		 * Aqui es guarda l'estock dels diners que hi ha per a canvi
-		 * Es restara quan es doni diners del client
-		 * Posicio 0 == Monedes 1€
-		 * Posicio 1 == Monedes 2€
-		 * Posicio 2 == Monedes 0.50€
-		 */
-		int monaderGuanyat [] = new int [3];
-		/*
-		 * Sumar les monedes introduides per el client 
-		 */
+	public static void introduirMonedes(double monedaIntroduida) {
 		if (monedaIntroduida == 1) {
-			monaderGuanyat[0] = +1;
-			System.out.println(monaderGuanyat[0]);
+			monaderGuanyat[0]=monaderGuanyat[0]+1;
+			//System.out.println(monaderGuanyat[0]);
 		}else if (monedaIntroduida == 2) {
-			monaderGuanyat[1] += 1;
-			System.out.println(monaderGuanyat[1]);
+			monaderGuanyat[1]=monaderGuanyat[1]+1;
+			//System.out.println(monaderGuanyat[1]);
 
 		}else {
-			monaderGuanyat[2] += 1;
-			System.out.println(monaderGuanyat[2]);
-		}
+			monaderGuanyat[2]=monaderGuanyat[2]+1;
+			//System.out.println(monaderGuanyat[2]);
+		}		
 	}
 	
-	
-	public static void stockMonedes (double monedaCanvi){
-	
+	/*--------------------------------------------------------*/
+	public static void retiradaMoneda(double canviDonat) {
+		/*
+		 * He de fer una funcio que comprovi si queden monedes
+		 * He de fer funcio que resti totes les monedes be
+		 * */
+		
+		if (canviDonat == 1) {
+			monaderCanvi[0]=monaderCanvi[0]-1;
+			System.out.println(monaderCanvi[0]);
+		}else if (canviDonat == 2) {
+			monaderCanvi[1]=monaderCanvi[1]-1;
+			System.out.println(monaderCanvi[1]);
 
-
+		}else {
+			monaderCanvi[2]=monaderCanvi[2]-1;
+			System.out.println(monaderCanvi[2]);
+		}		
 	}
-
-
+	/*Aquestes funcions retornen la quantitat de monedes que s'han guanyat*/
+	public static int consultarMonedes1e() {
+		return monaderGuanyat[0];//Monedes 1€
+	}
+	public static int consultarMonedes2e() {
+		return monaderGuanyat[1];//Monedes 2€
+	}
+	public static int consultarMonedes50cnt() {
+		return monaderGuanyat[2];//Monedes 0,50€
+	}
+	
+	/*Aquestes funcions retornen la quantitat de monedes que queden en el Canvi*/
+	public static int consultarMonedesCanvi1e() {
+		return monaderCanvi[0];//Monedes 1€
+	}
+	public static int consultarMonedesCanvi2e() {
+		return monaderCanvi[1];//Monedes 2€
+	}
+	public static int consultarMonedesCanvi50cnt() {
+		return monaderCanvi[2];//Monedes 0,50€
+	}
 	public static void main(String[] args) {
 		int n=0;
-		 double preuProducte= 2.5;
-		 
-		int monader [] = new int [3];
-		 
-		 while(n<5) {
-		funcioMonedesPrincipal(preuProducte);
-		System.out.println(" ");
+		double preuProducte= 2.5;
 
-		 }
+		//int monader [] = new int [3];
+
+		while(n<5) {
+			funcioMonedesPrincipal(preuProducte);
+			//System.out.print(" ");
+			
+			/*
+			 * Prova per veure si el sortia be
+			 * */
+			System.out.println("Monedes d'1€: "+consultarMonedes1e());
+			System.out.println("Monedes de 2€: "+consultarMonedes2e());
+			System.out.println("Monedes de 0.50€: "+consultarMonedes50cnt());
+			System.out.println("----------------------------------------------");
+			System.out.println("Monedes d'1€: "+consultarMonedesCanvi1e());
+			System.out.println("Monedes de 2€: "+consultarMonedesCanvi2e());
+			System.out.println("Monedes de 0.50€: "+consultarMonedesCanvi50cnt());
+
+
+		}
 
 	}
 }
