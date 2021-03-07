@@ -61,71 +61,27 @@ public class Stock {
     }
 
     //Funcio a on demanarem al client quin producte vol
-    public static int[] demanarproducte (String[][] taulastock)
-    {
-        Scanner lector = new Scanner (System.in);
-        boolean correcta = false;
+    public static int[] demanarproducte (String[][] taulastock){
+
         int []posicio = new int[2];
+        Scanner lector = new Scanner (System.in);
         System.out.println();
-        contingutmaquina(taulastock);
+        System.out.println();
 
-        String producte = "A1";
-
-        while(!correcta)
-        {
-            System.out.print("Posa el numero del producte que vols comprar: ");
-            producte = lector.nextLine();
-
-            for(int i=0; i< 4 && !correcta;i++)
-            {
-                for(int j=0; j< 3;j++)
-                {
-                    if(producte==taulastock[i][j])
-                    {
-                        correcta = true;
-                    }
-
-                }
-            }
-        }
-
+        System.out.print("Posa el numero del producte que vols comprar: ");
+        String producte = lector.nextLine();
         posicio[0] = producte.charAt(0)-'A';
-        posicio[1] = producte.charAt(1)-'1';
+        posicio[1] = producte.charAt(1)-'1';     
 
         return posicio;
 
     }
 
-    //Aqui fem una funcio que en el cas que l'usuari posi un numero de producte que no i sigui no ens el deixi comprar
- /*   public static void restriccio (String[][] taulastock, int posicio[])
+    //Aqui fem una funcio que en el cas que l'usuari posi un numero de producte que no i sigui no ens el deici
+   /* public static void restriccio (String[][] taulastock, int posicio[])
     {
     
-        boolean correcta = false;
-
-        int fila = posicio[0];
-        int columna = posicio[1];
-
-        for(int i=0; i<taulastock.length && !correcta;i++)
-        {
-            for(int j=0; j<taulastock.length;j++)
-            {
-                if(taulastock[i][j]==taulastock[fila][columna])
-                {
-                    correcta = true;
-                }
-                else
-                {
-                    correcta = false;
-                }
-
-            }
-        }
-
-        if(!correcta)
-        {
-            demanarproducte(taulastock);
-        }
-  
+    
     
     }*/
 
@@ -152,8 +108,7 @@ public class Stock {
     }
 
     //Un cop l'usuari compra un producte li restem 1 al stock d'aquell producte
-    public static void restastock (int[][] productesrestants, int posicio[])
-    {
+    public static void restastock (int[][] productesrestants, int posicio[]){
 
         int fila = posicio[0];
         int columna = posicio[1];
@@ -162,4 +117,39 @@ public class Stock {
 
     }
 
+
+   public static void main(String [] args){
+
+    String [][]taulastock = new String[4][3];
+    int [][]productesrestants = new int[4][3];
+    contingutmaquina(taulastock);
+    estructuratauler(taulastock);
+    productesstock(productesrestants);
+ //  int posicio[] = demanarproducte(taulastock);
+
+    boolean torna = false;
+    productesstock(productesrestants);
+
+    while(!torna)
+    {
+
+        int posicio[] = demanarproducte(taulastock);
+
+        if(hihastock(productesrestants, posicio))
+        {
+            
+            if(!torna)
+            {
+                restastock(productesrestants, posicio);
+            } 
+     
+        }
+        else
+        {
+            torna =true; 
+        }
+    }  
+
+    
+    }
 }
