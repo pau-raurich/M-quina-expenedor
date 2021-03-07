@@ -35,7 +35,6 @@ public class Application {
 			
 			
 		}
-		
 		*/
 				
 
@@ -59,7 +58,8 @@ public class Application {
 				{
 					Stock.restastock(productesrestants, posicio);
 					Stock.estructuratauler(taulastock);
-					System.out.print(Stock.preuproducte(preusparticulars, posicio));
+					System.out.println();
+					double preu = Stock.preuproducte(preusparticulars, posicio);
 				} 
 		 
 			}
