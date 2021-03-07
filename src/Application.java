@@ -41,23 +41,23 @@ public class Application {
 
 		String [][]taulastock = new String[4][3];
 		int [][]productesrestants = new int[4][3];
-		contingutmaquina(taulastock);
-		estructuratauler(taulastock);
-		productesstock(productesrestants);
+		Stock.contingutmaquina(taulastock);
+		Stock.estructuratauler(taulastock);
+		Stock.productesstock(productesrestants);
 
 		boolean torna = false;
 		while(!torna)
 		{
 	
-			int posicio[] = demanarproducte(taulastock);
+			int posicio[] = Stock.demanarproducte(taulastock);
 	
-			if(hihastock(productesrestants, posicio))
+			if(Stock.hihastock(productesrestants, posicio))
 			{
 				
 				if(!torna)
 				{
-					restastock(productesrestants, posicio);
-					estructuratauler(taulastock);
+					Stock.restastock(productesrestants, posicio);
+					Stock.estructuratauler(taulastock);
 				} 
 		 
 			}
