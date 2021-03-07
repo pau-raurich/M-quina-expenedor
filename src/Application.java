@@ -41,10 +41,11 @@ public class Application {
 
 		String [][]taulastock = new String[4][3];
 		int [][]productesrestants = new int[4][3];
+		double [][]preusparticulars = new double[4][3];
 		Stock.contingutmaquina(taulastock);
 		Stock.estructuratauler(taulastock);
 		Stock.productesstock(productesrestants);
-
+		Stock.preus(preusparticulars);
 		boolean torna = false;
 		while(!torna)
 		{
@@ -57,6 +58,7 @@ public class Application {
 				{
 					Stock.restastock(productesrestants, posicio);
 					Stock.estructuratauler(taulastock);
+					System.out.print(Stock.preuproducte(preusparticulars, posicio));
 				} 
 		 
 			}
