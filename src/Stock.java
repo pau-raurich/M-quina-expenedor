@@ -40,6 +40,7 @@ public class Stock {
 
     }
 
+    //Funcio on guardem l'stock restant
     public static void productesstock (int[][] productesrestants)
     {
         productesrestants[0][0]= 0;
@@ -59,6 +60,28 @@ public class Stock {
         productesrestants[3][2]= 10;
 
     }
+
+    //Funcio on guardem els diners
+    public static void preus (double[][] preusparticulars)
+    {
+        preusparticulars[0][0]= 1.50;
+        preusparticulars[0][1]= 2.50;
+        preusparticulars[0][2]= 2;
+
+        preusparticulars[1][0]= 1;
+        preusparticulars[1][1]= 2.50;
+        preusparticulars[1][2]= 2;
+
+        preusparticulars[2][0]= 1.50;
+        preusparticulars[2][1]= 2;
+        preusparticulars[2][2]= 1.50;
+
+        preusparticulars[3][0]= 2.50;
+        preusparticulars[3][1]= 2;
+        preusparticulars[3][2]= 1.50;
+
+    }
+
 
     //Funcio a on demanarem al client quin producte vol
     public static int[] demanarproducte (String[][] taulastock){
@@ -107,6 +130,20 @@ public class Stock {
 
     }
 
+    //Aqui fare la funcio per mostrar el preu del producte que ha seleccionat l'usuari
+
+    public static double preuproducte (double[][] preusparticulars, int posicio[]){
+    
+        boolean hihastock = false;
+ 
+        int fila = posicio[0];
+        int columna = posicio[1];
+ 
+        return preusparticulars[fila][columna];
+ 
+     }
+
+
     //Un cop l'usuari compra un producte li restem 1 al stock d'aquell producte
     public static void restastock (int[][] productesrestants, int posicio[]){
 
@@ -122,9 +159,11 @@ public class Stock {
 
     String [][]taulastock = new String[4][3];
     int [][]productesrestants = new int[4][3];
+    double [][]preusparticulars = new double[4][3];
     contingutmaquina(taulastock);
     estructuratauler(taulastock);
     productesstock(productesrestants);
+    preus(preusparticulars);
  //  int posicio[] = demanarproducte(taulastock);
 
     boolean torna = false;
@@ -141,6 +180,7 @@ public class Stock {
             if(!torna)
             {
                 restastock(productesrestants, posicio);
+                System.out.print(preuproducte(preusparticulars, posicio));
             } 
      
         }
