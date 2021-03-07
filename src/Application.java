@@ -50,7 +50,6 @@ public class Application {
 		{
 	
 			int posicio[] = Stock.demanarproducte(taulastock);
-	
 			if(Stock.hihastock(productesrestants, posicio))
 			{
 				

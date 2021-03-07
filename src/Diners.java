@@ -32,32 +32,36 @@ public class Diners {
 
 			System.out.println("Introdueix les monedes: ");
 			monedaIntroduida = sc.nextDouble();
-			/*-------------------------------------------*/
-			introduirMonedes(monedaIntroduida);
-			/*-------------------------------------------*/
-
-			//Et suma les monedes introduides
-			contador += monedaIntroduida;
-
-			if(preuProducte>contador) {//Si es > continua el bucle
-
-			}else if(preuProducte==contador) {//Si es == sacaba el codi
-				System.out.println("Import finalitzat");
-				System.out.println("Ja pot recollir el producte");
-				break;//Un cop entrem aquest if aixo et fa sortir del bucle
-
-			}else {//Sino et tornen el canvi i el producte
-				canviDonat = contador - preuProducte;//veure la diferencia que li hem de donar
+			if(monedaIntroduida==1||monedaIntroduida==2||monedaIntroduida==0.50){
 				/*-------------------------------------------*/
-				retiradaMoneda(canviDonat);
+				introduirMonedes(monedaIntroduida);
 				/*-------------------------------------------*/
-				System.out.println("Import finalitzat");
-				System.out.println("Tingui el seu canvi "+canviDonat+": ");
-				System.out.println("Ja pot recollir el producte");
+
+				//Et suma les monedes introduides
+				contador += monedaIntroduida;
+
+				if(preuProducte>contador) {//Si es > continua el bucle
+
+				}else if(preuProducte==contador) {//Si es == sacaba el codi
+					System.out.println("Import finalitzat");
+					System.out.println("Ja pot recollir el producte");
+					break;//Un cop entrem aquest if aixo et fa sortir del bucle
+
+				}else {//Sino et tornen el canvi i el producte
+					canviDonat = contador - preuProducte;//veure la diferencia que li hem de donar
+					/*-------------------------------------------*/
+					retiradaMoneda(canviDonat);
+					/*-------------------------------------------*/
+					System.out.println("Import finalitzat");
+					System.out.println("Tingui el seu canvi "+canviDonat+": ");
+					System.out.println("Ja pot recollir el producte");
+				}
+			}else {
+				System.out.println("Introdueix la moneda correcte.");
 			}
 		}
 	}
-	
+
 	public static void introduirMonedes(double monedaIntroduida) {
 		if (monedaIntroduida == 1) {
 			monaderGuanyat[0]=monaderGuanyat[0]+1;
