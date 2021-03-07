@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Application {
 
 	public static void main(String [] args){
-		Scanner sc = new Scanner (System.in);
+	/*	Scanner sc = new Scanner (System.in);
 		
 		String[][] taulaStock = new String[4][3];//creem una matriu per veure el stock
 		
@@ -13,14 +13,14 @@ public class Application {
 		 * Presentacio de la maquina
 		 * 
 		 * */
-		System.out.println("Benvinguts a la nostra màquina expendedora, agafi el producte que vulgui");
+		//System.out.println("Benvinguts a la nostra mï¿½quina expendedora, agafi el producte que vulgui");
 		
 		//Funcio mostreTaulell
-		estructuratauler(talerStock);
+		//estructuratauler(talerStock);
 		/*
 		 * Es fa fins que no queden productes
 		 * */
-		while(n<5)//while per cridar a les diferents funcions dels altres fitxers
+		/*while(n<5)//while per cridar a les diferents funcions dels altres fitxers
 		{
 			
 			//Opcio codiManteniment
@@ -35,6 +35,37 @@ public class Application {
 			
 			
 		}
+		
+		*/
+				
+
+		String [][]taulastock = new String[4][3];
+		int [][]productesrestants = new int[4][3];
+		contingutmaquina(taulastock);
+		estructuratauler(taulastock);
+		productesstock(productesrestants);
+
+		boolean torna = false;
+		while(!torna)
+		{
+	
+			int posicio[] = demanarproducte(taulastock);
+	
+			if(hihastock(productesrestants, posicio))
+			{
+				
+				if(!torna)
+				{
+					restastock(productesrestants, posicio);
+					estructuratauler(taulastock);
+				} 
+		 
+			}
+			else
+			{
+				torna =true; 
+			}
+		}  
 
 	}
 }
