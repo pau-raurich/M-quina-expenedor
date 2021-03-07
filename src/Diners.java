@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Diners {
 
 	public static int monaderGuanyat [] = new int [3];
-	public static int monaderCanvi [] = {50,50,50};
+	public static int monaderCanvi [] = {5,5,5};
 
 
 	public static void funcioMonedesPrincipal (double preuProducte){
@@ -58,10 +58,11 @@ public class Diners {
 				}
 			}else {
 				System.out.println("Introdueix la moneda correcte.");
+
 			}
 		}
 	}
-
+	/*------------------------------------------------------------------------------*/
 	public static void introduirMonedes(double monedaIntroduida) {
 		if (monedaIntroduida == 1) {
 			monaderGuanyat[0]=monaderGuanyat[0]+1;
@@ -76,25 +77,75 @@ public class Diners {
 		}		
 	}
 	
-	/*--------------------------------------------------------*/
+	/*------------------------------------------------------------------------------*/
 	public static void retiradaMoneda(double canviDonat) {
 		/*
 		 * He de fer una funcio que comprovi si queden monedes
 		 * He de fer funcio que resti totes les monedes be
 		 * */
+		long euros= (long) canviDonat;//Agafem la part entera del numero (els euros)
+		double centims = canviDonat-euros;//Restem els euros amb el canviDonat (els centims)
 		
-		if (canviDonat == 1) {
+		if (euros == 1) {
+			if(quedaCanvi1()==false) {
+				System.out.println("No queda canvi");
+			}else {
 			monaderCanvi[0]=monaderCanvi[0]-1;
-			System.out.println(monaderCanvi[0]);
-		}else if (canviDonat == 2) {
+			//System.out.println(monaderCanvi[0]);
+			System.out.println("S'ha tornat una moneda de: "+euros+"€");
+			}
+		}if (euros == 2) {
+			if(quedaCanvi2()==false) {
+				System.out.println("No queda canvi");
+			}else {
 			monaderCanvi[1]=monaderCanvi[1]-1;
-			System.out.println(monaderCanvi[1]);
-
-		}else {
-			monaderCanvi[2]=monaderCanvi[2]-1;
-			System.out.println(monaderCanvi[2]);
+			//System.out.println(monaderCanvi[1]);
+			System.out.println("S'ha tornat una moneda de: "+euros+"€");
+			}
+		}if(centims == 0.50) {
+			if(quedaCanvi50()==false) {
+				System.out.println("No queda canvi");
+			}else {
+				monaderCanvi[2]=monaderCanvi[2]-1;
+			//System.out.println(monaderCanvi[2]);
+			System.out.println("S'ha tornat una moneda de: "+centims+"0€");
+			}
 		}		
 	}
+	/*------------------------------------------------------------------------------*/
+
+	/*
+	 * Mirar si queda canvi de monedeS
+	 */
+	public static boolean quedaCanvi1() {
+		boolean si;
+		
+		if(monaderCanvi[0]==0) {
+			return si = false;//Si no queda canvi torna false
+		}else {
+			return si = true;//Si queda cani torna true
+		}
+	}
+	public static boolean quedaCanvi2() {
+		boolean si;
+		
+		if(monaderCanvi[1]==0) {
+			return si = false;//Si no queda canvi torna false
+		}else {
+			return si = true;//Si queda cani torna true
+		}
+	}
+	public static boolean quedaCanvi50() {
+		boolean si;
+		
+		if(monaderCanvi[2]==0) {
+			return si = false;//Si no queda canvi torna false
+		}else {
+			return si = true;//Si queda cani torna true
+		}
+	}
+	/*------------------------------------------------------------------------------*/
+
 	/*Aquestes funcions retornen la quantitat de monedes que s'han guanyat*/
 	public static int consultarMonedes1e() {
 		return monaderGuanyat[0];//Monedes 1€
@@ -116,9 +167,11 @@ public class Diners {
 	public static int consultarMonedesCanvi50cnt() {
 		return monaderCanvi[2];//Monedes 0,50€
 	}
+	/*---------------------------------------------------------------------------*/
+
 	public static void main(String[] args) {
 		int n=0;
-		double preuProducte= 2.5;
+		double preuProducte= 1.5;
 
 		//int monader [] = new int [3];
 

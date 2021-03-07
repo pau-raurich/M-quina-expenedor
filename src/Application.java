@@ -59,6 +59,7 @@ public class Application {
 					Stock.estructuratauler(taulastock);
 					System.out.println();
 					double preu = Stock.preuproducte(preusparticulars, posicio);
+					Diners.funcioMonedesPrincipal(preu);
 				} 
 		 
 			}
