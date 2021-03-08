@@ -2,32 +2,74 @@ import java.util.Scanner;
 
 public class Manteniment {
 	
-	public static final int contrasenya = 123456;
 	
 	public static void MantenimentMaquina(String[][] taulastock, int[] productesrestants)
 	{
-		while(stock.contingutmaquina(taulastock) == 0)
+		Scanner sc = new Scanner (System.in);
+		while(n<5)
 		{
-			int NovaQuantitat = 0;
-			
-			System.out.println("Ingresi la contrasenya per posar stock del producte amb quantitat 0: ");
-			contra = sc.nextInt();
-			
-			if(contrasenya == contra)
+			System.out.println("1-Mirar Stock Productes");
+            System.out.println("2-Posar Stock Productes");
+            System.out.println("3-Mirar Stock MonedesCanvi");
+            System.out.println("4-Mirar Stock MonedesGuanyades");
+            System.out.println("5-Retirar Stock MonedesGuanyades");
+            System.out.println("6-Posar Stock MonedesCanvi");
+            System.out.println("7-Sortir de Manteniment");
+            System.out.println("8-Apagar Màquina");
+            
+            System.out.println("Introdueix un número ");
+            
+            int numero = sc.nextInt();
+
+			switch(numero)
 			{
+			case 1: Stock.productesstock(productesrestants);
+			
+				break;
+			
+			case 2: 
 				
-				System.out.println("Introdueixi la nova quantitat de stock: ");
-				NovaQuantitat = sc.nextInt();
+				break;
+			
+			case 3:
+				
+				break;
+				
+			case 4:Diners.consultarMonedesGuanyades();
+            	System.out.println("------------------------");
+            	Diners.consultarMonedesCanvi();
+				
+				break;
+				
+			case 5:Diners.retiradaMoneda(canviDonat);
+				System.out.println("------------------------");
+				Diners.retiradaMoneda();
+			
+				break;
+				
+			case 6:
+				
+				break;
+				
+			case 7:
+				
+				break;
+				
+			case 8:
+				
+				break;
+		
 			}
 		}
+		
 	}
 	
 
-	public static void main(String[] args)
+	/*public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
 		
 		
-	}
+	}*/
 
 }
