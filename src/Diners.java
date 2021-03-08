@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Prova1 {
+public class Diners {
 
 	public static int monaderGuanyat [] = new int [3];
 	public static int monaderCanvi [] = {5,5,5};
