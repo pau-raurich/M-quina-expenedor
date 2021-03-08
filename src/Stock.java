@@ -84,17 +84,36 @@ public class Stock {
 
 
     //Funcio a on demanarem al client quin producte vol
-    public static int[] demanarproducte (String[][] taulastock){
-
-        int []posicio = new int[2];
+    public static int[] demanarproducte (String[][] taulastock)
+    {
         Scanner lector = new Scanner (System.in);
+        boolean correcta = false;
+        int []posicio = new int[2];
         System.out.println();
-        System.out.println();
+        contingutmaquina(taulastock);
 
-        System.out.print("Posa el numero del producte que vols comprar: ");
-        String producte = lector.nextLine();
+        String producte = "A1";
+
+        while(!correcta)
+        {
+            System.out.print("Posa el numero del producte que vols comprar: ");
+            producte = lector.nextLine();
+
+            for(int i=0; i< 4 && !correcta;i++)
+            {
+                for(int j=0; j< 3;j++)
+                {
+                    if(producte.equals(taulastock[i][j]))
+                    {
+                        correcta = true;
+                    }
+
+                }
+            }
+        }
+
         posicio[0] = producte.charAt(0)-'A';
-        posicio[1] = producte.charAt(1)-'1';     
+        posicio[1] = producte.charAt(1)-'1';
 
         return posicio;
 
