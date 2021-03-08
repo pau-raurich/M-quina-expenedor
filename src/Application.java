@@ -59,13 +59,15 @@ public class Application {
 					Stock.estructuratauler(taulastock);
 					System.out.println();
 					double preu = Stock.preuproducte(preusparticulars, posicio);
+					System.out.println("El producte seleccionat costa: " + preu);
 					Diners.funcioMonedesPrincipal(preu);
 				} 
 		 
 			}
 			else
 			{
-				torna =true; 
+				System.out.println("No queda stock del producte que has seleccionat trien un altre");
+				torna = false; 
 			}
 		}  
 
