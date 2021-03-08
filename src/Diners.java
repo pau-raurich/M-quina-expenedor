@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Diners {
+public class Prova1 {
 
 	public static int monaderGuanyat [] = new int [3];
 	public static int monaderCanvi [] = {5,5,5};
@@ -161,7 +161,55 @@ public class Diners {
 		System.out.println("Monedes de 0.50€: "+ monaderCanvi[2]);
 	}
 	/*---------------------------------------------------------------------------*/
+	public static void retirarMonedesGuanyades() {
+		Scanner sc = new Scanner(System.in);
+		boolean i = true;
+		do {
+		System.out.println("Monedes d'1€: "+ monaderGuanyat[0]);
+		System.out.println("Quantes monedes vols retirar d'1€? ");
+		int retirarMoneda1 = sc.nextInt();
+		if(monaderGuanyat[0]>=retirarMoneda1) {
+		monaderGuanyat[0]-=retirarMoneda1;
+		 i = true;
+		}else {
+			System.out.println("No hi ha tantes monedes.");
+			 i = false;
 
+		}
+	}while(i==false);
+		/*------------------------------------------------------*/
+		do {
+			System.out.println("Monedes d'2€: "+ monaderGuanyat[1]);
+			System.out.println("Quantes monedes vols retirar d'2€? ");
+			int retirarMoneda2 = sc.nextInt();
+			if(monaderGuanyat[1]>=retirarMoneda2) {
+			monaderGuanyat[1]-=retirarMoneda2;
+			 i = true;
+			}else {
+				System.out.println("No hi ha tantes monedes.");
+				 i = false;
+
+			}
+		}while(i==false);
+		/*------------------------------------------------------*/
+
+		do {
+			System.out.println("Monedes de 0,50€: "+ monaderGuanyat[2]);
+			System.out.println("Quantes monedes vols retirar de 0,50€? ");
+			int retirarMoneda50 = sc.nextInt();
+			if(monaderGuanyat[2]>=retirarMoneda50) {
+			monaderGuanyat[2]-=retirarMoneda50;
+			 i = true;
+			}else {
+				System.out.println("No hi ha tantes monedes.");
+				 i = false;
+
+			}
+		}while(i==false);
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		int n=0;
 		double preuProducte= 1.5;
@@ -170,15 +218,14 @@ public class Diners {
 
 		while(n<5) {
 			funcioMonedesPrincipal(preuProducte);
-			//System.out.print(" ");
+		
+			//consultarMonedesCanvi();
+		
+			funcioMonedesPrincipal(preuProducte);
 			
-			/*
-			 * Prova per veure si el sortia be
-			 * */
+			retirarMonedesGuanyades();
+			
 			consultarMonedesGuanyades();
-			System.out.println("------------------------");
-			consultarMonedesCanvi();
-
 		}
 
 	}
