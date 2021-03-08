@@ -147,25 +147,18 @@ public class Diners {
 	/*------------------------------------------------------------------------------*/
 
 	/*Aquestes funcions retornen la quantitat de monedes que s'han guanyat*/
-	public static int consultarMonedes1e() {
-		return monaderGuanyat[0];//Monedes 1€
+	public static void consultarMonedesGuanyades() {
+		System.out.println("Monedes d'1€: "+ monaderGuanyat[0]);
+		System.out.println("Monedes de 2€: "+ monaderGuanyat[1]);
+		System.out.println("Monedes de 0.50€: "+ monaderGuanyat[2]);
 	}
-	public static int consultarMonedes2e() {
-		return monaderGuanyat[1];//Monedes 2€
-	}
-	public static int consultarMonedes50cnt() {
-		return monaderGuanyat[2];//Monedes 0,50€
-	}
+
 	
 	/*Aquestes funcions retornen la quantitat de monedes que queden en el Canvi*/
-	public static int consultarMonedesCanvi1e() {
-		return monaderCanvi[0];//Monedes 1€
-	}
-	public static int consultarMonedesCanvi2e() {
-		return monaderCanvi[1];//Monedes 2€
-	}
-	public static int consultarMonedesCanvi50cnt() {
-		return monaderCanvi[2];//Monedes 0,50€
+	public static void consultarMonedesCanvi() {
+		System.out.println("Monedes d'1€: "+ monaderCanvi[0]);
+		System.out.println("Monedes de 2€: "+ monaderCanvi[1]);
+		System.out.println("Monedes de 0.50€: "+ monaderCanvi[2]);
 	}
 	/*---------------------------------------------------------------------------*/
 
@@ -182,14 +175,9 @@ public class Diners {
 			/*
 			 * Prova per veure si el sortia be
 			 * */
-			System.out.println("Monedes d'1€: "+consultarMonedes1e());
-			System.out.println("Monedes de 2€: "+consultarMonedes2e());
-			System.out.println("Monedes de 0.50€: "+consultarMonedes50cnt());
-			System.out.println("----------------------------------------------");
-			System.out.println("Monedes d'1€: "+consultarMonedesCanvi1e());
-			System.out.println("Monedes de 2€: "+consultarMonedesCanvi2e());
-			System.out.println("Monedes de 0.50€: "+consultarMonedesCanvi50cnt());
-
+			consultarMonedesGuanyades();
+			System.out.println("------------------------");
+			consultarMonedesCanvi();
 
 		}
 
