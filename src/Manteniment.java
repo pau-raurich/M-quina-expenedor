@@ -36,11 +36,10 @@ public class Manteniment {
         System.out.println(productesrestants[fila][columna] + stocknou);
     }
 	
-	public static boolean ApagarMaquina(boolean torna)
-	{
-		return torna = true;
-		
-	}
+	public static boolean apagarmaquina (boolean torna)
+    {
+        return torna = true;
+    }
 	
 	
 	public static void MantenimentMaquina(String[][] taulastock, int[][] productesrestants)
@@ -66,7 +65,7 @@ public class Manteniment {
 
 			switch(numero)
 			{
-			case 1: estructuratauler(productesrestants);
+			case 1: Stock.veurestock(productesrestants);
 			
 				break;
 			
@@ -95,7 +94,7 @@ public class Manteniment {
 				
 				break;
 				
-			case 8:ApagarMaquina(torna);
+			case 8:apagarmaquina(torna);
 				
 				break;
 		
