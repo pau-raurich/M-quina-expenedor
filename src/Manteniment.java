@@ -2,6 +2,21 @@ import java.util.Scanner;
 
 public class Manteniment {
 	
+	public static int contrasenya = 123456;
+	
+	public static void estructuratauler (int [][] productesrestants)
+    {
+        for (int i =0; i<productesrestants.length;i++)
+        {
+            System.out.println();
+            System.out.print(" ");
+            for(int j =0; j<productesrestants[0].length;j++)
+            {
+                System.out.print(" " + productesrestants[i][j]);
+            }
+        }
+    }
+	
 	public static void posarstock(int[][] productesrestants)
     {
         Scanner sc = new Scanner (System.in);
@@ -21,13 +36,21 @@ public class Manteniment {
         System.out.println(productesrestants[fila][columna] + stocknou);
     }
 	
+	public static boolean ApagarMaquina(boolean torna)
+	{
+		return torna = true;
+		
+	}
+	
 	
 	public static void MantenimentMaquina(String[][] taulastock, int[][] productesrestants)
 	{
 		Scanner sc = new Scanner (System.in);
 		int n = 0;
+		boolean torna=true;
 		while(n<5)
 		{
+			System.out.println("");
 			System.out.println("1-Mirar Stock Productes");
             System.out.println("2-Posar Stock Productes");
             System.out.println("3-Mirar Stock MonedesCanvi");
@@ -36,20 +59,20 @@ public class Manteniment {
             System.out.println("6-Posar Stock MonedesCanvi");
             System.out.println("7-Sortir de Manteniment");
             System.out.println("8-Apagar Màquina");
-            
+            System.out.println("");
             System.out.println("Introdueix un número ");
             
             int numero = sc.nextInt();
 
 			switch(numero)
 			{
-			case 1: Stock.productesstock(productesrestants);
+			case 1: estructuratauler(productesrestants);
 			
 				break;
 			
 			case 2: posarstock(productesrestants); 
 
-            break;
+            	break;
             
 			case 3:
 				
@@ -72,7 +95,7 @@ public class Manteniment {
 				
 				break;
 				
-			case 8:
+			case 8:ApagarMaquina(torna);
 				
 				break;
 		
@@ -82,12 +105,20 @@ public class Manteniment {
 	}
 	
 
-	/*public static void main(String[] args)
+	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		
-	}*/
+		String [][]taulastock = new String[4][3];
+	    int [][]productesrestants = new int[4][3];
+	    int n = 0;
+		while(n<5)
+		{
+			//posarstock(productesrestants);
+			MantenimentMaquina(taulastock, productesrestants);
+		}
+			
+	}
 
 }
 
