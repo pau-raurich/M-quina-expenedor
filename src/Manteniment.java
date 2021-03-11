@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class Manteniment {
 	
 	
-	public static void MantenimentMaquina(String[][] taulastock, int[] productesrestants)
+	public static void MantenimentMaquina(String[][] taulastock, int[][] productesrestants)
 	{
 		Scanner sc = new Scanner (System.in);
+		int n = 0;
 		while(n<5)
 		{
 			System.out.println("1-Mirar Stock Productes");
@@ -36,15 +37,12 @@ public class Manteniment {
 				break;
 				
 			case 4:Diners.consultarMonedesGuanyades();
-            	System.out.println("------------------------");
-            	Diners.consultarMonedesCanvi();
+
 				
 				break;
 				
-			case 5:Diners.retiradaMoneda(canviDonat);
-				System.out.println("------------------------");
-				Diners.retiradaMoneda();
-			
+			case 5:Diners.retirarMonedesGuanyades();;
+				
 				break;
 				
 			case 6:
@@ -73,3 +71,4 @@ public class Manteniment {
 	}*/
 
 }
+
