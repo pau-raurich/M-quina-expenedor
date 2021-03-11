@@ -2,10 +2,30 @@ import java.util.Scanner;
 
 public class Manteniment {
 	
+	public static void posarstock(int[][] productesrestants)
+    {
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Selecciona la casella que vols omplir? ");
+        String omplircasella=sc.nextLine();
+        int[] posicio = new int[2];
+
+        posicio[0] = omplircasella.charAt(0)-'A';
+        posicio[1] = omplircasella.charAt(1)-'1';
+
+        int fila = posicio[0];
+        int columna = posicio[1];
+
+        //
+        System.out.println("Quan de stock vols omplir? ");
+        int stocknou=sc.nextInt();
+        System.out.println(productesrestants[fila][columna] + stocknou);
+    }
 	
-	public static void MantenimentMaquina(String[][] taulastock, int[] productesrestants)
+	
+	public static void MantenimentMaquina(String[][] taulastock, int[][] productesrestants)
 	{
 		Scanner sc = new Scanner (System.in);
+		int n = 0;
 		while(n<5)
 		{
 			System.out.println("1-Mirar Stock Productes");
@@ -27,24 +47,21 @@ public class Manteniment {
 			
 				break;
 			
-			case 2: 
-				
-				break;
-			
+			case 2: posarstock(productesrestants); 
+
+            break;
+            
 			case 3:
 				
 				break;
 				
 			case 4:Diners.consultarMonedesGuanyades();
-            	System.out.println("------------------------");
-            	Diners.consultarMonedesCanvi();
+
 				
 				break;
 				
-			case 5:Diners.retiradaMoneda(canviDonat);
-				System.out.println("------------------------");
-				Diners.retiradaMoneda();
-			
+			case 5:Diners.retirarMonedesGuanyades();
+				
 				break;
 				
 			case 6:
@@ -73,3 +90,4 @@ public class Manteniment {
 	}*/
 
 }
+
