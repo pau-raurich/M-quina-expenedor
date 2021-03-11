@@ -209,30 +209,31 @@ public class Diners {
 	}
 	public static void PosarMonedesCanvi() {
 		Scanner sc = new Scanner(System.in);
+		int monedesMaxim = 5;
 		boolean i = true;
-		do {
-			System.out.println("Monedes d'1€: "+ monaderGuanyat[0]);
-			System.out.println("Quantes monedes vols retirar d'1€? ");
-			int retirarMoneda1 = sc.nextInt();
-			if(monaderGuanyat[0]>=retirarMoneda1) {
-				monaderGuanyat[0]-=retirarMoneda1;
+		do {			
+			System.out.println("Monedes d'1€: "+ monaderCanvi[0]);
+			System.out.println("Quantes monedes vols introduir d'1€? ");
+			int posarMoneda1 = sc.nextInt();
+			if(monedesMaxim<=posarMoneda1) {
+				monaderCanvi[0]+=posarMoneda1;
 				i = true;
 			}else {
-				System.out.println("No hi ha tantes monedes.");
+				System.out.println("No pots possar tantes monedes.");
 				i = false;
 
 			}
 		}while(i==false);
 		/*------------------------------------------------------*/
 		do {
-			System.out.println("Monedes d'2€: "+ monaderGuanyat[1]);
-			System.out.println("Quantes monedes vols retirar d'2€? ");
-			int retirarMoneda2 = sc.nextInt();
-			if(monaderGuanyat[1]>=retirarMoneda2) {
-				monaderGuanyat[1]-=retirarMoneda2;
+			System.out.println("Monedes d'2€: "+ monaderCanvi[1]);
+			System.out.println("Quantes monedes vols introduir d'2€? ");
+			int posarMoneda2 = sc.nextInt();
+			if(monedesMaxim<=posarMoneda2) {
+				monaderCanvi[1]+=posarMoneda2;
 				i = true;
 			}else {
-				System.out.println("No hi ha tantes monedes.");
+				System.out.println("No pots possar tantes monedes.");
 				i = false;
 
 			}
@@ -240,14 +241,14 @@ public class Diners {
 		/*------------------------------------------------------*/
 
 		do {
-			System.out.println("Monedes de 0,50€: "+ monaderGuanyat[2]);
-			System.out.println("Quantes monedes vols retirar de 0,50€? ");
-			int retirarMoneda50 = sc.nextInt();
-			if(monaderGuanyat[2]>=retirarMoneda50) {
-				monaderGuanyat[2]-=retirarMoneda50;
+			System.out.println("Monedes de 0,50€: "+ monaderCanvi[2]);
+			System.out.println("Quantes monedes vols introduir de 0,50€? ");
+			int posarMoneda50 = sc.nextInt();
+			if(monedesMaxim<=posarMoneda50) {
+				monaderCanvi[2]+=posarMoneda50;
 				i = true;
 			}else {
-				System.out.println("No hi ha tantes monedes.");
+				System.out.println("No pots possar tantes monedes.");
 				i = false;
 
 			}
@@ -269,9 +270,9 @@ public class Diners {
 
 			funcioMonedesPrincipal(preuProducte);
 
-			retirarMonedesGuanyades();
+			PosarMonedesCanvi();
 
-			consultarMonedesGuanyades();
+			consultarMonedesCanvi();
 		}
 
 	}
