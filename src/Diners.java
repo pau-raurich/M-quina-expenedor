@@ -76,7 +76,7 @@ public class Diners {
 			//System.out.println(monaderGuanyat[2]);
 		}		
 	}
-	
+
 	/*------------------------------------------------------------------------------*/
 	public static void retiradaMoneda(double canviDonat) {
 		/*
@@ -85,30 +85,30 @@ public class Diners {
 		 * */
 		long euros= (long) canviDonat;//Agafem la part entera del numero (els euros)
 		double centims = canviDonat-euros;//Restem els euros amb el canviDonat (els centims)
-		
+
 		if (euros == 1) {
 			if(quedaCanvi1()==false) {
 				System.out.println("No queda canvi");
 			}else {
-			monaderCanvi[0]=monaderCanvi[0]-1;
-			//System.out.println(monaderCanvi[0]);
-			System.out.println("S'ha tornat una moneda de: "+euros+"€");
+				monaderCanvi[0]=monaderCanvi[0]-1;
+				//System.out.println(monaderCanvi[0]);
+				System.out.println("S'ha tornat una moneda de: "+euros+"€");
 			}
 		}if (euros == 2) {
 			if(quedaCanvi2()==false) {
 				System.out.println("No queda canvi");
 			}else {
-			monaderCanvi[1]=monaderCanvi[1]-1;
-			//System.out.println(monaderCanvi[1]);
-			System.out.println("S'ha tornat una moneda de: "+euros+"€");
+				monaderCanvi[1]=monaderCanvi[1]-1;
+				//System.out.println(monaderCanvi[1]);
+				System.out.println("S'ha tornat una moneda de: "+euros+"€");
 			}
 		}if(centims == 0.50) {
 			if(quedaCanvi50()==false) {
 				System.out.println("No queda canvi");
 			}else {
 				monaderCanvi[2]=monaderCanvi[2]-1;
-			//System.out.println(monaderCanvi[2]);
-			System.out.println("S'ha tornat una moneda de: "+centims+"0€");
+				//System.out.println(monaderCanvi[2]);
+				System.out.println("S'ha tornat una moneda de: "+centims+"0€");
 			}
 		}		
 	}
@@ -119,7 +119,7 @@ public class Diners {
 	 */
 	public static boolean quedaCanvi1() {
 		boolean si;
-		
+
 		if(monaderCanvi[0]==0) {
 			return si = false;//Si no queda canvi torna false
 		}else {
@@ -128,7 +128,7 @@ public class Diners {
 	}
 	public static boolean quedaCanvi2() {
 		boolean si;
-		
+
 		if(monaderCanvi[1]==0) {
 			return si = false;//Si no queda canvi torna false
 		}else {
@@ -137,7 +137,7 @@ public class Diners {
 	}
 	public static boolean quedaCanvi50() {
 		boolean si;
-		
+
 		if(monaderCanvi[2]==0) {
 			return si = false;//Si no queda canvi torna false
 		}else {
@@ -153,7 +153,7 @@ public class Diners {
 		System.out.println("Monedes de 0.50€: "+ monaderGuanyat[2]);
 	}
 
-	
+
 	/*Aquestes funcions retornen la quantitat de monedes que queden en el Canvi*/
 	public static void consultarMonedesCanvi() {
 		System.out.println("Monedes d'1€: "+ monaderCanvi[0]);
@@ -165,29 +165,29 @@ public class Diners {
 		Scanner sc = new Scanner(System.in);
 		boolean i = true;
 		do {
-		System.out.println("Monedes d'1€: "+ monaderGuanyat[0]);
-		System.out.println("Quantes monedes vols retirar d'1€? ");
-		int retirarMoneda1 = sc.nextInt();
-		if(monaderGuanyat[0]>=retirarMoneda1) {
-		monaderGuanyat[0]-=retirarMoneda1;
-		 i = true;
-		}else {
-			System.out.println("No hi ha tantes monedes.");
-			 i = false;
+			System.out.println("Monedes d'1€: "+ monaderGuanyat[0]);
+			System.out.println("Quantes monedes vols retirar d'1€? ");
+			int retirarMoneda1 = sc.nextInt();
+			if(monaderGuanyat[0]>=retirarMoneda1) {
+				monaderGuanyat[0]-=retirarMoneda1;
+				i = true;
+			}else {
+				System.out.println("No hi ha tantes monedes.");
+				i = false;
 
-		}
-	}while(i==false);
+			}
+		}while(i==false);
 		/*------------------------------------------------------*/
 		do {
 			System.out.println("Monedes d'2€: "+ monaderGuanyat[1]);
 			System.out.println("Quantes monedes vols retirar d'2€? ");
 			int retirarMoneda2 = sc.nextInt();
 			if(monaderGuanyat[1]>=retirarMoneda2) {
-			monaderGuanyat[1]-=retirarMoneda2;
-			 i = true;
+				monaderGuanyat[1]-=retirarMoneda2;
+				i = true;
 			}else {
 				System.out.println("No hi ha tantes monedes.");
-				 i = false;
+				i = false;
 
 			}
 		}while(i==false);
@@ -198,18 +198,64 @@ public class Diners {
 			System.out.println("Quantes monedes vols retirar de 0,50€? ");
 			int retirarMoneda50 = sc.nextInt();
 			if(monaderGuanyat[2]>=retirarMoneda50) {
-			monaderGuanyat[2]-=retirarMoneda50;
-			 i = true;
+				monaderGuanyat[2]-=retirarMoneda50;
+				i = true;
 			}else {
 				System.out.println("No hi ha tantes monedes.");
-				 i = false;
+				i = false;
 
 			}
 		}while(i==false);
 	}
-	
-	
-	
+	public static void PosarMonedesCanvi() {
+		Scanner sc = new Scanner(System.in);
+		boolean i = true;
+		do {
+			System.out.println("Monedes d'1€: "+ monaderGuanyat[0]);
+			System.out.println("Quantes monedes vols retirar d'1€? ");
+			int retirarMoneda1 = sc.nextInt();
+			if(monaderGuanyat[0]>=retirarMoneda1) {
+				monaderGuanyat[0]-=retirarMoneda1;
+				i = true;
+			}else {
+				System.out.println("No hi ha tantes monedes.");
+				i = false;
+
+			}
+		}while(i==false);
+		/*------------------------------------------------------*/
+		do {
+			System.out.println("Monedes d'2€: "+ monaderGuanyat[1]);
+			System.out.println("Quantes monedes vols retirar d'2€? ");
+			int retirarMoneda2 = sc.nextInt();
+			if(monaderGuanyat[1]>=retirarMoneda2) {
+				monaderGuanyat[1]-=retirarMoneda2;
+				i = true;
+			}else {
+				System.out.println("No hi ha tantes monedes.");
+				i = false;
+
+			}
+		}while(i==false);
+		/*------------------------------------------------------*/
+
+		do {
+			System.out.println("Monedes de 0,50€: "+ monaderGuanyat[2]);
+			System.out.println("Quantes monedes vols retirar de 0,50€? ");
+			int retirarMoneda50 = sc.nextInt();
+			if(monaderGuanyat[2]>=retirarMoneda50) {
+				monaderGuanyat[2]-=retirarMoneda50;
+				i = true;
+			}else {
+				System.out.println("No hi ha tantes monedes.");
+				i = false;
+
+			}
+		}while(i==false);
+	}
+
+
+
 	public static void main(String[] args) {
 		int n=0;
 		double preuProducte= 1.5;
@@ -218,13 +264,13 @@ public class Diners {
 
 		while(n<5) {
 			funcioMonedesPrincipal(preuProducte);
-		
+
 			//consultarMonedesCanvi();
-		
+
 			funcioMonedesPrincipal(preuProducte);
-			
+
 			retirarMonedesGuanyades();
-			
+
 			consultarMonedesGuanyades();
 		}
 
