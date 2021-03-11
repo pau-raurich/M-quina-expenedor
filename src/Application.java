@@ -24,14 +24,14 @@ public class Application {
 
 		boolean torna = false;
 
-		System.out.println("Funcionament: ");
-		System.out.println("- Es poden posar monedes de 2, 1, 0,50 ");
-
 		while(!torna)
 		{
 			//Aqui es guarda la posicio que ha dit l'usuari
 			int posicio[] = Stock.demanarproducte(taulastock);
-			
+			if (posicio[1] == 1)
+			{
+				System.out.println("MANTENIMENT ");
+			}
 
 			if(Stock.hihastock(productesrestants, posicio))
 			{
@@ -44,6 +44,7 @@ public class Application {
 					//Aqui es guarda el preu del producte seleccionat
 					double preu = Stock.preuproducte(preusparticulars, posicio);
 					System.out.println("El producte seleccionat costa: " + preu);
+					System.out.println("Es poden posar monedes de 2, 1, 0,50 ");
 					Diners.funcioMonedesPrincipal(preu);
 				} 
 		 
