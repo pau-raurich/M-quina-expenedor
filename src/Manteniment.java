@@ -41,7 +41,7 @@ public class Manteniment {
 				
 				break;
 				
-			case 5:Diners.retirarMonedesGuanyades();;
+			case 5:Diners.retirarMonedesGuanyades();
 				
 				break;
 				
