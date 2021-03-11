@@ -17,6 +17,20 @@ public class Stock {
         }
     }
 
+    public static void veurestock (int[][] productesrestants)
+    {
+
+        for (int i =0; i<productesrestants.length;i++)
+        {
+            System.out.println();
+            System.out.print(" ");
+            for(int j =0; j<productesrestants[0].length;j++)
+            {
+                System.out.print(" " + productesrestants[i][j]);
+            }
+        }
+    }
+
     //Posicio dels productes
     //Cridem el contingut de la maquina
 
